@@ -2,7 +2,6 @@
     <string name="app_name">Rasmika</string>
 
 
-
     <string name="country_prompt">Choose a country</string>
 
     <string-array name="country_arrays">
@@ -11,6 +10,6 @@
         <item>Project Manager</item>
         <item>Client</item>
         <item>Admin</item>
-=
+        =
     </string-array>
 </resources>

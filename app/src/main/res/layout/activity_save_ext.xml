@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kasunchinthaka.rasmika.SaveExtActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/buttonConnectDB"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_margin="10dp"
+        android:background="#3949ff"
+        android:onClick="connectDB"
+        android:text="connect DB"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/buttonrReceive"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_margin="10dp"
+        android:background="#3949ff"
+        android:onClick="receiveJSON"
+        android:text="Receive JsonObject"
+        android:textColor="#ffffff"/>
+
+    <Button
+        android:id="@+id/buttonrAdd"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_margin="10dp"
+        android:background="#3949ff"
+        android:onClick="addToDB"
+        android:text="Add To DB"
+        android:textColor="#ffffff"/>
+
+</LinearLayout>

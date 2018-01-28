@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-
+/**
+ * Created by Kasun Chinthaka on 11/21/2016.
+ */
 
 public class LastLastOpenDbHelper  extends SQLiteOpenHelper implements BaseColumns {
     private static final String DATABASE_NAME = "login.db";

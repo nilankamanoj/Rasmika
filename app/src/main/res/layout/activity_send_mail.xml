@@ -113,6 +113,16 @@
       />
 
 
+    <Button
+        android:id="@+id/btnSaveExternalDB"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#3949ff"
+        android:onClick="saveExternal"
+        android:textColor="#ffffff"
+        android:text="Save TO External DB"
+        />
 
 
     <!--</LinearLayout>-->

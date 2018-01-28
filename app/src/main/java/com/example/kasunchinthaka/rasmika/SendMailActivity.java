@@ -26,7 +26,7 @@ public class SendMailActivity extends Activity {
         Bundle bundle = getIntent().getExtras();
         String position = bundle.getString("position");
         TextView textView = findViewById(R.id.positiontxt);
-        textView.setText("You are logged in as a "+position);
+        textView.setText("You are logged in as a " + position);
 
 
         buttonSendEmail = findViewById(R.id.buttonSendEmail);
@@ -69,7 +69,6 @@ public class SendMailActivity extends Activity {
                 startActivity(mailClient);
 
 
-
 //                String to = "kasunchinthaka555@gmail.com";
 //                String subject = "YUMMY ONLIE ORDERING";
 //                String message = "Heei How are you!";
@@ -86,8 +85,6 @@ public class SendMailActivity extends Activity {
 //                email.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 //
 //                startActivity(Intent.createChooser(email, "Choose an Email client :"));
-
-
 
 
             }
@@ -110,11 +107,16 @@ public class SendMailActivity extends Activity {
 //        });
     }
 
-    public void forward(View view){
+    public void forward(View view) {
         Button button = findViewById(R.id.buttonForward);
         button.setVisibility(View.GONE);
         Button button1 = findViewById(R.id.buttonReceiveEmail);
         button1.setVisibility(View.VISIBLE);
+    }
+
+    public void saveExternal(View view) {
+        Intent intent = new Intent(this, SaveExtActivity.class);
+        startActivity(intent);
     }
 
 }
