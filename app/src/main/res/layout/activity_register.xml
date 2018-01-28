@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_sign_up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    tools:context="com.example.kasunchinthaka.rasmika.RegisterActivity">
+
+
+    <EditText
+        android:id="@+id/editTextUserName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="#3949ff"
+        android:layout_margin="10dp"
+        android:hint="User Name"
+     >
+
+        <requestFocus />
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/editTextUserEmail"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+       android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="user_email@gmail.com"
+        android:textColor="#3949ff">
+
+        <requestFocus />
+    </EditText>
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_margin="10dp"
+        android:hint="Password"
+        android:textColor="#3949ff"
+        android:inputType="textPassword"
+   />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:textColor="#3949ff"
+        android:entries="@array/country_arrays"
+        android:prompt="@string/country_prompt" />
+
+    <Button
+        android:id="@+id/buttonCreateAccount"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#3949ff"
+        android:textColor="#ffffff"
+        android:text="create account"
+         />
+
+
+</LinearLayout>
