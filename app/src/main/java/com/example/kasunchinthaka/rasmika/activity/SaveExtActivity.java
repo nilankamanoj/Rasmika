@@ -1,4 +1,4 @@
-package com.example.kasunchinthaka.rasmika;
+package com.example.kasunchinthaka.rasmika.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kasunchinthaka.rasmika.R;
 
 import org.json.JSONObject;
 

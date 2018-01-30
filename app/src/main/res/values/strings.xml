@@ -10,6 +10,11 @@
         <item>Project Manager</item>
         <item>Client</item>
         <item>Admin</item>
-        =
-    </string-array>
+           </string-array>
+
+    <string-array name="gender">
+        <item>Select Gender</item>
+        <item>male</item>
+        <item>female</item>
+            </string-array>
 </resources>

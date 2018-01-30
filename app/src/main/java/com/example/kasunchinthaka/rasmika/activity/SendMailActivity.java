@@ -1,4 +1,4 @@
-package com.example.kasunchinthaka.rasmika;
+package com.example.kasunchinthaka.rasmika.activity;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.kasunchinthaka.rasmika.R;
+import com.example.kasunchinthaka.rasmika.activity.SaveExtActivity;
 
 public class SendMailActivity extends Activity {
 

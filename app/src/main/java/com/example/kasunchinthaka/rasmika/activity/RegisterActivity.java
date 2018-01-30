@@ -1,4 +1,4 @@
-package com.example.kasunchinthaka.rasmika;
+package com.example.kasunchinthaka.rasmika.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,19 +11,24 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.kasunchinthaka.rasmika.R;
 import com.example.kasunchinthaka.rasmika.db.LastLastDataSource;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText editTextUserName, editTextUserEmail, editTextPassword;
+    EditText editTextFName, editTextUserEmail, editTextPassword,editTextLName,editTextTelePhone,editTextDOB;
     Button btnCreateAccount;
     Context context = this;
     private LastLastDataSource mDataSource;    //have to understand
     private Spinner spinner1;
+    private Spinner spinner2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,37 +39,57 @@ public class RegisterActivity extends AppCompatActivity {
         mDataSource.open();
 
         addListenerOnSpinnerItemSelection();
+        addListenerOnSpinnerItemSelection2();
         //have to understand
-        editTextUserName = findViewById(R.id.editTextUserName);
+        editTextFName = findViewById(R.id.editTextFName);
         editTextUserEmail = findViewById(R.id.editTextUserEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         btnCreateAccount = findViewById(R.id.buttonCreateAccount);
+        editTextLName =findViewById(R.id.editTextLName);
+        editTextTelePhone = findViewById(R.id.editTextTelePhone);
+        editTextDOB=findViewById(R.id.editTextDOB);
+
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
 
-                String userName = editTextUserName.getText().toString();
+                String FName = editTextFName.getText().toString();
+
+                String Lname = editTextLName.getText().toString();
+                String DOB = editTextDOB.getText().toString();
+                String teleNo=editTextTelePhone.getText().toString();
+
+                String gender = String.valueOf(spinner2.getSelectedItem());
+
                 String password = editTextPassword.getText().toString();
                 String userEmail = editTextUserEmail.getText().toString();
                 String position = String.valueOf(spinner1.getSelectedItem());
-
-
-                if (userName.equals("") || password.equals("") || userEmail.equals("") || position.equals("")) {
+                if (FName.equals("") || password.equals("") || userEmail.equals("")|| Lname.equals("") || teleNo.equals("") || DOB.equals("dd-mm-yyyy")) {
 
                     Toast.makeText(getApplicationContext(), "Field Vacant",
                             Toast.LENGTH_LONG).show();
 
-                    editTextUserName.setText("");
-                    editTextUserName.setError("Field vacant!");
-                    editTextPassword.setText("");
-                    editTextPassword.setError("Field vacant!");
-                    editTextUserEmail.setText("");
-                    editTextUserEmail.setError("Field vacant!");
+                    if(FName.equals(""))editTextFName.setError("Field vacant!");
+                    if(password.equals(""))editTextPassword.setError("Field vacant!");
+                    if(userEmail.equals(""))editTextUserEmail.setError("Field vacant!");
+                    if(Lname.equals("") )editTextLName.setError("Field vacant!");
+                    if(teleNo.equals("") )editTextTelePhone.setError("Field vacant!");
+                    if(DOB.equals("dd-mm-yyyy"))editTextDOB.setError("Field vacant!");
 
-                } else if (isEmailValid(userEmail)) {
 
-                    mDataSource.insertEntry(userName, password, userEmail, position);   //  have to understand
+                }
+                else if(!isThisDateValid(DOB,"dd-mm-yyyy")){
+                    editTextDOB.setError("invalid date!");
+                    editTextDOB.setText("dd-mm-yyyy");
+                }
+                else if(!teleNo.matches("\\d*") || teleNo.length()!=10){
+                   editTextTelePhone.setText("");
+                   editTextTelePhone.setError("Invalid phone");
+                }
+                else if (isEmailValid(userEmail)) {
+/**
+                    mDataSource.insertEntry(FName, password, userEmail, position);   //  have to understand
                     Toast.makeText(getApplicationContext(),
                             "Account Successfully Created ", Toast.LENGTH_LONG)
                             .show();
@@ -72,7 +97,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Intent i = new Intent(RegisterActivity.this,
                             LoginActivity.class);
                     startActivity(i);
-
+*/
 
                 } else {
 //                        Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
@@ -84,6 +109,30 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public boolean isThisDateValid(String dateToValidate, String dateFromat){
+
+        if(dateToValidate == null){
+            return false;
+        }
+
+        SimpleDateFormat sdf = new SimpleDateFormat(dateFromat);
+        sdf.setLenient(false);
+
+        try {
+
+            //if not valid, it will throw ParseException
+            Date date = sdf.parse(dateToValidate);
+            System.out.println(date);
+
+        } catch (ParseException e) {
+
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
     }
 
     public boolean isEmailValid(String email) {
@@ -110,6 +159,11 @@ public class RegisterActivity extends AppCompatActivity {
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner1.setOnItemSelectedListener(new CustomOnItemSelectedListener());
     }
+    public void addListenerOnSpinnerItemSelection2() {
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        spinner2.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+    }
+
 
     public void signup(View view) {
         finish();

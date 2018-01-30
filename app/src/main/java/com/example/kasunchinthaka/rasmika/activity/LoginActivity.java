@@ -1,4 +1,4 @@
-package com.example.kasunchinthaka.rasmika;
+package com.example.kasunchinthaka.rasmika.activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -9,16 +9,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
 
-import com.example.kasunchinthaka.rasmika.db.LastLastDataSource;
+
+import com.example.kasunchinthaka.rasmika.R;
+
 
 
 public class LoginActivity extends AppCompatActivity {
     private Spinner spinner1;
     Button btnSignIn, btnSignUp;
 
-    private LastLastDataSource mDataSource;   //have to understand
+   // private LastLastDataSource mDataSource;   //have to understand
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        mDataSource = new LastLastDataSource(this);   //have to understand
-        mDataSource.open();                             //have to understand
+       // mDataSource = new LastLastDataSource(this);   //have to understand
+       // mDataSource.open();                             //have to understand
 
         final EditText editTextUserEmail = findViewById(R.id.editTextUserEmailToLogin);
         final EditText editTextPassword = findViewById(R.id.editTextPasswordToLogin);
@@ -39,9 +40,9 @@ public class LoginActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         String position = String.valueOf(spinner1.getSelectedItem());
 
-        String storedPassword = mDataSource.getSingleEntry(userEmail);   //have to understand
+        //String storedPassword = mDataSource.getSingleEntry(userEmail);   //have to understand
 
-        String storedPosition = mDataSource.getSingleEntryy(password);   //have to understand
+        //String storedPosition = mDataSource.getSingleEntryy(password);   //have to understand
 
         if (userEmail.equals("") || password.equals("")) {
 
@@ -51,23 +52,22 @@ public class LoginActivity extends AppCompatActivity {
             editTextPassword.setError("Field required!");
 
         } else {
-            if (password.equals(storedPassword)) {
-                if (position.equals(storedPosition)) {
+            System.out.println(userEmail+","+password+","+position);
+            /**
+            if () {
+
                     Toast.makeText(LoginActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
                     finish();
                     Intent main = new Intent(LoginActivity.this, SendMailActivity.class);
                     main.putExtra("position", storedPosition);
                     startActivity(main);
-                } else {
-                    Toast.makeText(LoginActivity.this,
-                            "Email or Position does not match",
-                            Toast.LENGTH_LONG).show();
                 }
             } else {
                 Toast.makeText(LoginActivity.this,
                         "Email or Password does not match",
                         Toast.LENGTH_LONG).show();
             }
+             */
         }
     }
 

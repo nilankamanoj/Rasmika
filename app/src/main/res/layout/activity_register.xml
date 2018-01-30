@@ -6,22 +6,67 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    tools:context="com.example.kasunchinthaka.rasmika.RegisterActivity">
+    tools:context="com.example.kasunchinthaka.rasmika.activity.RegisterActivity">
 
 
     <EditText
-        android:id="@+id/editTextUserName"
-        android:layout_width="fill_parent"
+        android:id="@+id/editTextFName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="#3949ff"
         android:layout_margin="10dp"
-        android:hint="User Name"
-     >
+        android:ems="10"
+        android:hint="First Name"
+        android:textColor="#3949ff">
 
         <requestFocus />
     </EditText>
 
+    <EditText
+        android:id="@+id/editTextLName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:textColor="#3949ff">
+
+        <requestFocus />
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/editTextTelePhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="TelePhone"
+        android:textColor="#3949ff">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextDOB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Date of Birth"
+        android:text="dd-mm-yyyy"
+        android:textColor="#3949ff">
+
+        <requestFocus />
+    </EditText>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:entries="@array/gender"
+        android:prompt="@string/country_prompt"
+        android:textColor="#3949ff" />
 
     <EditText
         android:id="@+id/editTextUserEmail"
@@ -60,9 +105,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="#3949ff"
-        android:textColor="#ffffff"
         android:text="create account"
-         />
+        android:textColor="#ffffff" />
 
 
 </LinearLayout>
