@@ -38,7 +38,8 @@
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.SendMailActivity" />
-        <activity android:name=".activity.RecieveMailActivity"></activity>
+        <activity android:name=".activity.RecieveMailActivity" />
+        <activity android:name=".activity.ViewActivity"></activity>
     </application>
 
 </manifest>

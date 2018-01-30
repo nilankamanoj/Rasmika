@@ -10,4 +10,6 @@ public class Constraints {
     public static String loginUrl =baseUrl+"login_app.php";
     public static String registerUrl = baseUrl+"register_app.php";
     public static String sendEmailUrl = baseUrl+"store_mail.php";
+    public static String recieveUrl = baseUrl+"read_mail.php";
+
 }

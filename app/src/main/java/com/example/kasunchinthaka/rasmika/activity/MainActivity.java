@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 System.out.println("check mail");
                 Intent intent = new Intent(context, RecieveMailActivity.class);
-                intent.putExtra("from",email);
+                intent.putExtra("email",email);
                 intent.putExtra("position",position);
                 startActivity(intent);
 
