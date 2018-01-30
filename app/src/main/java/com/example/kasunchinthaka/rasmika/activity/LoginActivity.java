@@ -45,10 +45,6 @@ public class LoginActivity extends AppCompatActivity {
         String password = editTextPassword.getText().toString();
         final String position = String.valueOf(spinner1.getSelectedItem());
 
-        //String storedPassword = mDataSource.getSingleEntry(userEmail);   //have to understand
-
-        //String storedPosition = mDataSource.getSingleEntryy(password);   //have to understand
-
         if (userEmail.equals("") || password.equals("")) {
 
 
