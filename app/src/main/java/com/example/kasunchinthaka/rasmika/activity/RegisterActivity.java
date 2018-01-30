@@ -17,12 +17,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kasunchinthaka.rasmika.R;
-import com.example.kasunchinthaka.rasmika.db.LastLastDataSource;
-import com.example.kasunchinthaka.rasmika.util.Constraints;
 import com.example.kasunchinthaka.rasmika.util.Constraints;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -35,7 +32,6 @@ public class RegisterActivity extends AppCompatActivity {
     EditText editTextFName, editTextUserEmail, editTextPassword,editTextLName,editTextTelePhone,editTextDOB;
     Button btnCreateAccount;
     Context context = this;
-    private LastLastDataSource mDataSource;    //have to understand
     private Spinner spinner1;
     private Spinner spinner2;
 
@@ -43,10 +39,6 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
-        mDataSource = new LastLastDataSource(this);    //have to understand
-        mDataSource.open();
-
         addListenerOnSpinnerItemSelection();
         addListenerOnSpinnerItemSelection2();
         //have to understand
@@ -165,25 +157,10 @@ public class RegisterActivity extends AppCompatActivity {
 
                     queue.add(jobReq);
 
-/**
- *
- *
-                    mDataSource.insertEntry(FName, password, userEmail, position);   //  have to understand
-                    Toast.makeText(getApplicationContext(),
-                            "Account Successfully Created ", Toast.LENGTH_LONG)
-                            .show();
-                    finish(); // add finish to finish current activity
-                    Intent i = new Intent(RegisterActivity.this,
-                            LoginActivity.class);
-                    startActivity(i);
-*/
-
                 } else {
-//                        Toast.makeText(getApplicationContext(),"Invalid email address",Toast.LENGTH_SHORT).show();
                     editTextUserEmail.setText("");
                     editTextUserEmail.setError("Invalid Email Address");
                     Toast.makeText(RegisterActivity.this, "Invalid Email Address", Toast.LENGTH_SHORT).show();
-
 
                 }
             }
@@ -201,7 +178,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         try {
 
-            //if not valid, it will throw ParseException
             Date date = sdf.parse(dateToValidate);
             System.out.println(date);
 
@@ -250,11 +226,6 @@ public class RegisterActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    @Override
-    protected void onPause() {
-        mDataSource.close();
-        super.onPause();
-    }
 
     public void onBackPressed() {
 
@@ -268,9 +239,7 @@ public class RegisterActivity extends AppCompatActivity {
 class CustomOnItemSelectedListener implements AdapterView.OnItemSelectedListener {
 
     public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-//        Toast.makeText(parent.getContext(),
-//                "OnItemSelectedListener : " + parent.getItemAtPosition(pos).toString(),
-//                Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

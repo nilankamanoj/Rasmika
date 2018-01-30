@@ -7,12 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -21,10 +18,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kasunchinthaka.rasmika.R;
 import com.example.kasunchinthaka.rasmika.util.Constraints;
-
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,9 +27,6 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity {
     Context context = this;
     private Spinner spinner1;
-    Button btnSignIn, btnSignUp;
-
-   // private LastLastDataSource mDataSource;   //have to understand
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +37,6 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-       // mDataSource = new LastLastDataSource(this);   //have to understand
-       // mDataSource.open();                             //have to understand
 
         final EditText editTextUserEmail = findViewById(R.id.editTextUserEmailToLogin);
         final EditText editTextPassword = findViewById(R.id.editTextPasswordToLogin);
@@ -126,25 +116,6 @@ public class LoginActivity extends AppCompatActivity {
 
             queue.add(jobReq);
 
-
-
-
-
-            /**
-            if () {
-
-                    Toast.makeText(LoginActivity.this, "Congrats: Login Successfull", Toast.LENGTH_LONG).show();
-                    finish();
-                    Intent main = new Intent(LoginActivity.this, MainActivity.class);
-                    main.putExtra("position", storedPosition);
-                    startActivity(main);
-                }
-            } else {
-                Toast.makeText(LoginActivity.this,
-                        "Email or Password does not match",
-                        Toast.LENGTH_LONG).show();
-            }
-             */
         }
         else {
             editTextUserEmail.setError("invalid email!");
