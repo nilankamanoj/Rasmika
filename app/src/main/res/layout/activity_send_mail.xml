@@ -1,131 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="20dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.kasunchinthaka.rasmika.activity.SendMailActivity"
+    android:orientation="vertical">
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:orientation="vertical"-->
-    <!--android:layout_marginTop="180dp"-->
-    <!--android:gravity="center"-->
-    <!--android:layout_gravity="center">-->
-
-    <!--<TextView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:text=""-->
-    <!--android:id="@+id/ttttt"-->
-    <!--/>-->
-
-
-    <!--<TextView-->
-    <!--android:id="@+id/textViewPhoneNo"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="To : "-->
-
-    <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/editTextTo"-->
-    <!--android:layout_width="fill_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:inputType="textEmailAddress" >-->
-
-    <!--<requestFocus />-->
-
-    <!--</TextView>-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/textViewSubject"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="Subject : "-->
-    <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/editTextSubject"-->
-    <!--android:layout_width="fill_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--&gt;-->
-    <!--</TextView>-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/textViewMessage"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:text="Message : "-->
-    <!--android:textAppearance="?android:attr/textAppearanceLarge" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/editTextMessage"-->
-    <!--android:layout_width="fill_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:gravity="top"-->
-    <!--android:inputType="textMultiLine"-->
-    <!--android:lines="5" />-->
-
-    <TextView
+    <EditText
+        android:id="@+id/editTextSender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textColor="#001fca"
-        android:id="@+id/positiontxt"
-        android:text=""/>
+        android:ems="10"
+        android:hint="From"
+        android:textColor="#3949ff">
 
-    <Button
-        android:id="@+id/buttonSendEmail"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#3949ff"
-        android:layout_margin="10dp"
-        android:textColor="#ffffff"
-        android:text="Send Email"
-        />
-    <Button
-        android:id="@+id/buttonForward"
-        android:layout_width="fill_parent"
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextReciever"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="#3949ff"
-        android:onClick="forward"
-        android:textColor="#ffffff"
-        android:text="Receive/ forward email"
-        />
+        android:ems="10"
+        android:hint="To"
+        android:textColor="#3949ff">
 
-    <Button
-        android:id="@+id/buttonReceiveEmail"
-        android:layout_width="fill_parent"
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextSubject"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="#3949ff"
-        android:visibility="gone"
-        android:onClick="receiveEmail"
-        android:textColor="#ffffff"
-        android:text="Open your email client"
-      />
+        android:ems="10"
+        android:hint="Subject"
+        android:textColor="#3949ff">
 
+        <requestFocus />
+    </EditText>
 
-    <Button
-        android:id="@+id/btnSaveExternalDB"
-        android:layout_width="fill_parent"
+    <EditText
+        android:id="@+id/editTextProjectName"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Project name"
+        android:textColor="#3949ff">
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextDescription"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="description"
+        android:textColor="#3949ff">
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/buttonSend"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:layout_margin="10dp"
         android:background="#3949ff"
-        android:onClick="saveExternal"
-        android:textColor="#ffffff"
-        android:text="Save TO External DB"
-        />
-
-
-    <!--</LinearLayout>-->
+        android:onClick="connectDB"
+        android:text="Send Now"
+        android:textColor="#ffffff" />
 
 </LinearLayout>
-

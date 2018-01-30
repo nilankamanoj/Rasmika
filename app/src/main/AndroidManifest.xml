@@ -32,12 +32,13 @@
             android:name=".activity.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SendMailActivity"
+            android:name=".activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.SaveExtActivity"></activity>
+        <activity android:name=".activity.SendMailActivity" />
+        <activity android:name=".activity.RecieveMailActivity"></activity>
     </application>
 
 </manifest>

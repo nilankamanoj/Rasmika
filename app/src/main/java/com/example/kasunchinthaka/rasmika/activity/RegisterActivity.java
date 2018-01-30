@@ -108,7 +108,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
                 else if (isEmailValid(userEmail)) {
 
-                    String url= Constraints.loginUrl;
+                    String url= Constraints.registerUrl;
                     System.out.println(url);
                     JSONObject jObject=new JSONObject();
                     try {
@@ -129,7 +129,25 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onResponse(JSONObject jsonObject) {
                                     try {
-                                        System.out.println(jsonObject.getString("message"));
+                                        String success=jsonObject.getString("success");
+                                        String message=jsonObject.getString("message");
+
+                                        if(success.equals("valid")){
+                                            Toast.makeText(getApplicationContext(),
+                                                    message, Toast.LENGTH_LONG)
+                                                    .show();
+                                            finish(); // add finish to finish current activity
+                                            Intent i = new Intent(RegisterActivity.this,
+                                                    LoginActivity.class);
+                                            startActivity(i);
+
+                                        }
+                                        else{
+                                            Toast.makeText(getApplicationContext(),
+                                                    message, Toast.LENGTH_LONG)
+                                                    .show();
+
+                                        }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
                                     }
