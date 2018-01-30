@@ -6,10 +6,10 @@
 
     <string-array name="country_arrays">
         <item>Select your position</item>
-        <item>Employee</item>
-        <item>Project Manager</item>
-        <item>Client</item>
-        <item>Admin</item>
+        <item>employee</item>
+        <item>manager</item>
+        <item>client</item>
+        <item>admin</item>
            </string-array>
 
     <string-array name="gender">

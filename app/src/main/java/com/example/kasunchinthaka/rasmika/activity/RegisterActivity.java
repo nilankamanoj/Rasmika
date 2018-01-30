@@ -10,9 +10,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.kasunchinthaka.rasmika.R;
 import com.example.kasunchinthaka.rasmika.db.LastLastDataSource;
+import com.example.kasunchinthaka.rasmika.util.Constraints;
+import com.example.kasunchinthaka.rasmika.util.Constraints;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -79,16 +88,68 @@ public class RegisterActivity extends AppCompatActivity {
 
 
                 }
+                else if(gender.equals("Select Gender")){
+                    Toast.makeText(getApplicationContext(), "Select Gender",
+                            Toast.LENGTH_LONG).show();
+
+                }
+                else if(position.equals("Select your position")){
+                    Toast.makeText(getApplicationContext(), "Select Position",
+                            Toast.LENGTH_LONG).show();
+
+                }
                 else if(!isThisDateValid(DOB,"dd-mm-yyyy")){
                     editTextDOB.setError("invalid date!");
                     editTextDOB.setText("dd-mm-yyyy");
                 }
-                else if(!teleNo.matches("\\d*") || teleNo.length()!=10){
+                else if(!teleNo.matches("\\d*") || teleNo.length()!=10 || !teleNo.startsWith("0")){
                    editTextTelePhone.setText("");
                    editTextTelePhone.setError("Invalid phone");
                 }
                 else if (isEmailValid(userEmail)) {
+
+                    String url= Constraints.loginUrl;
+                    System.out.println(url);
+                    JSONObject jObject=new JSONObject();
+                    try {
+                        jObject.put("first_name",FName);
+                        jObject.put("last_name",Lname);
+                        jObject.put("email",userEmail);
+                        jObject.put("tele_no",teleNo);
+                        jObject.put("gender",gender);
+                        jObject.put("account_type",position);
+                        jObject.put("dob",DOB);
+                        jObject.put("password",password);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    RequestQueue queue = Volley.newRequestQueue(context);
+                    JsonObjectRequest jobReq = new JsonObjectRequest(Request.Method.POST, url, jObject,
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject jsonObject) {
+                                    try {
+                                        System.out.println(jsonObject.getString("message"));
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError volleyError) {
+                                    System.out.println(volleyError);
+                                    Toast.makeText(getApplicationContext(), "check internet connectivity",
+                                            Toast.LENGTH_LONG).show();
+                                }
+                            });
+
+                    queue.add(jobReq);
+
 /**
+ *
+ *
                     mDataSource.insertEntry(FName, password, userEmail, position);   //  have to understand
                     Toast.makeText(getApplicationContext(),
                             "Account Successfully Created ", Toast.LENGTH_LONG)

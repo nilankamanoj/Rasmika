@@ -1,4 +1,4 @@
-package com.example.kasunchinthaka.rasmika;
+package com.example.kasunchinthaka.rasmika.model;
 
 /**
  * Created by Kasun Chinthaka on 11/19/2016.
