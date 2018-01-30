@@ -29,6 +29,7 @@ public class SendMailActivity extends AppCompatActivity {
     private EditText editTextSender,editTextReciever,editTextSubject,editTextDescription,editTextProjectName;
     private Button buttonSend;
     private Context context =this;
+    private Boolean inHome = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,10 @@ public class SendMailActivity extends AppCompatActivity {
         buttonSend = findViewById(R.id.buttonSend);
 
         if(sender!=null)editTextSender.setText(sender);
-        if(reciever!=null)editTextReciever.setText(reciever);
+        if(reciever!=null){
+            editTextReciever.setText(reciever);
+
+        }
         if(subject!=null)editTextSubject.setText(subject);
         if(projName!=null)editTextProjectName.setText(projName);
 
