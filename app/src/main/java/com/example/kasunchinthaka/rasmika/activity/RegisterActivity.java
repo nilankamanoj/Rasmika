@@ -76,7 +76,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if(userEmail.equals(""))editTextUserEmail.setError("Field vacant!");
                     if(Lname.equals("") )editTextLName.setError("Field vacant!");
                     if(teleNo.equals("") )editTextTelePhone.setError("Field vacant!");
-                    if(DOB.equals("dd-mm-yyyy"))editTextDOB.setError("Field vacant!");
+                    if(DOB.equals("yyyy-mm-dd"))editTextDOB.setError("Field vacant!");
 
 
                 }
@@ -90,7 +90,7 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
 
                 }
-                else if(!isThisDateValid(DOB,"dd-mm-yyyy")){
+                else if(!isThisDateValid(DOB,"yyyy-mm-dd")){
                     editTextDOB.setError("invalid date!");
                     editTextDOB.setText("dd-mm-yyyy");
                 }
@@ -136,12 +136,14 @@ public class RegisterActivity extends AppCompatActivity {
                                         }
                                         else{
                                             Toast.makeText(getApplicationContext(),
-                                                    message, Toast.LENGTH_LONG)
+                                                    "email already used!", Toast.LENGTH_LONG)
                                                     .show();
+                                            editTextUserEmail.setError("already used");
 
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();
+
                                     }
 
                                 }
@@ -150,8 +152,9 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onErrorResponse(VolleyError volleyError) {
                                     System.out.println(volleyError);
-                                    Toast.makeText(getApplicationContext(), "check internet connectivity",
+                                    Toast.makeText(getApplicationContext(), "email already used!",
                                             Toast.LENGTH_LONG).show();
+                                    editTextUserEmail.setError("already used!");
                                 }
                             });
 

@@ -53,7 +53,7 @@
         android:layout_margin="10dp"
         android:ems="10"
         android:hint="Date of Birth"
-        android:text="dd-mm-yyyy"
+        android:text="yyyy-mm-dd"
         android:textColor="#3949ff">
 
         <requestFocus />

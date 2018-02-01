@@ -93,9 +93,13 @@ public class SendMailActivity extends AppCompatActivity {
                                 jObject.put("account_type",position);
                                 jObject.put("to",to);
                                 jObject.put("from",from);
+
                                 jObject.put("subject",subject);
+
                                 jObject.put("description",description);
+
                                 jObject.put("project_name",project_name);
+
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

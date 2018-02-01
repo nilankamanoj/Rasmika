@@ -32,6 +32,7 @@ public class ViewActivity extends AppCompatActivity {
         subject = bundle.getString("subject");
         project_name = bundle.getString("project_name");
         String description = bundle.getString("description");
+        final String position = bundle.getString("position");
 
         textViewFrom.setText("From :"+from);
         textViewSubject.setText("Subject :"+subject);
@@ -48,6 +49,7 @@ public class ViewActivity extends AppCompatActivity {
                 intent.putExtra("to",from);
                 intent.putExtra("subject",subject);
                 intent.putExtra("projName",project_name);
+                intent.putExtra("position",position);
                 startActivity(intent);
             }
         });

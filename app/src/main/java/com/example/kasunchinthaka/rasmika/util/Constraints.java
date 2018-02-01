@@ -8,10 +8,10 @@ package com.example.kasunchinthaka.rasmika.util;
 public class Constraints {
     //set server urls here for activities
 
-    public static String baseUrl = "http://10.10.28.9/api/";
-    public static String loginUrl =baseUrl+"login_app.php";
-    public static String registerUrl = baseUrl+"register_app.php";
-    public static String sendEmailUrl = baseUrl+"store_mail.php";
-    public static String recieveUrl = baseUrl+"read_mail.php";
+    public static String baseUrl = "http://project.milandawijekoon.me/api/";
+    public static String loginUrl =baseUrl+"login_app";
+    public static String registerUrl = baseUrl+"register_app";
+    public static String sendEmailUrl = baseUrl+"store_mail";
+    public static String recieveUrl = baseUrl+"read_mail";
 
 }

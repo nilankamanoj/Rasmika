@@ -46,6 +46,8 @@ public class RecieveMailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recieve_mail);
         Bundle bundle = getIntent().getExtras();
         final String email = bundle.getString("email");
+        final String position = bundle.getString("position");
+
 
         String url= Constraints.recieveUrl;
         System.out.println(url);
@@ -103,6 +105,7 @@ public class RecieveMailActivity extends AppCompatActivity {
                                             intent.putExtra("subject",subject);
                                             intent.putExtra("description",description);
                                             intent.putExtra("project_name",project_name);
+                                            intent.putExtra("position",position);
                                             startActivity(intent);
 
                                         } catch (JSONException e) {
